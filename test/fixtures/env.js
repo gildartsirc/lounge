@@ -7,5 +7,5 @@ global.log = {
 	debug: () => {},
 };
 
-var home = require("path").join(__dirname, ".lounge");
+var home = require("path").join(__dirname, ".thelounge");
 require("../../src/helper").setHome(home);

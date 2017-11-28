@@ -1,9 +1,7 @@
-"use strict";
-
-const $ = require("jquery");
-const renderPreview = require("../renderPreview");
-const socket = require("../socket");
-const utils = require("../utils");
+import $ from "jquery";
+import renderPreview from "../renderPreview";
+import socket from "../socket";
+import utils from "../utils";
 
 socket.on("msg:preview", function(data) {
 	// Previews are not as important, we can wait longer for them to appear

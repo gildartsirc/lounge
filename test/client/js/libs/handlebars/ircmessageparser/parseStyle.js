@@ -1,7 +1,5 @@
-"use strict";
-
-const expect = require("chai").expect;
-const parseStyle = require("../../../../../../client/js/libs/handlebars/ircmessageparser/parseStyle");
+import {expect} from "chai";
+import parseStyle from "../../../../../../client/js/libs/handlebars/ircmessageparser/parseStyle";
 
 describe("parseStyle", () => {
 	it("should skip control codes", () => {

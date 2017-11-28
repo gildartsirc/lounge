@@ -1,8 +1,6 @@
-"use strict";
-
-const expect = require("chai").expect;
-const moment = require("moment");
-const friendlydate = require("../../../../../client/js/libs/handlebars/friendlydate");
+import {expect} from "chai";
+import moment from "moment";
+import friendlydate from "../../../../../client/js/libs/handlebars/friendlydate";
 
 describe("friendlydate Handlebars helper", () => {
 	it("should render 'Today' as a human-friendly date", () => {

@@ -1,7 +1,5 @@
-"use strict";
-
-module.exports = {
-	set: function(key, value) {
+export default {
+	set(key, value) {
 		try {
 			window.localStorage.setItem(key, value);
 		} catch (e) {
@@ -10,10 +8,10 @@ module.exports = {
 			// available. See http://stackoverflow.com/q/14555347/1935861.
 		}
 	},
-	get: function(key) {
+	get(key) {
 		return window.localStorage.getItem(key);
 	},
-	remove: function(key, value) {
+	remove(key, value) {
 		window.localStorage.removeItem(key, value);
 	},
 };

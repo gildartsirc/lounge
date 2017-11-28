@@ -1,12 +1,11 @@
-"use strict";
+import emojiRegex from "emoji-regex";
+const regex = emojiRegex();
 
-const emojiRegExp = require("emoji-regex")();
-
-function findEmoji(text) {
+export default function findEmoji(text) {
 	const result = [];
 	let match;
 
-	while ((match = emojiRegExp.exec(text))) {
+	while ((match = regex.exec(text))) {
 		result.push({
 			start: match.index,
 			end: match.index + match[0].length,
@@ -16,5 +15,3 @@ function findEmoji(text) {
 
 	return result;
 }
-
-module.exports = findEmoji;

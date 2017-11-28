@@ -1,6 +1,4 @@
-"use strict";
-
-module.exports = function(mode) {
+export default function(mode) {
 	var modes = {
 		"~": "owner",
 		"&": "admin",
@@ -11,4 +9,4 @@ module.exports = function(mode) {
 		"": "normal",
 	};
 	return modes[mode];
-};
+}

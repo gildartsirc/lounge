@@ -1,6 +1,4 @@
-"use strict";
-
-const $ = require("jquery");
+import $ from "jquery";
 const chat = document.getElementById("chat");
 
 function copyMessages() {

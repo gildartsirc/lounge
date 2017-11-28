@@ -1,8 +1,6 @@
-"use strict";
+import moment from "moment";
 
-const moment = require("moment");
-
-module.exports = function(time) {
+export default function(time) {
 	// See http://momentjs.com/docs/#/displaying/calendar-time/
 	return moment(time).calendar(null, {
 		sameDay: "[Today]",
@@ -10,4 +8,4 @@ module.exports = function(time) {
 		lastWeek: "D MMMM YYYY",
 		sameElse: "D MMMM YYYY",
 	});
-};
+}

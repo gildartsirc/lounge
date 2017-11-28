@@ -1,12 +1,10 @@
-"use strict";
-
-const $ = require("jquery");
-const fuzzy = require("fuzzy");
-const emojiMap = require("./libs/simplemap.json");
-const options = require("./options");
-const constants = require("./constants");
-require("jquery-textcomplete");
-require("./libs/jquery/tabcomplete");
+import $ from "jquery";
+import fuzzy from "fuzzy";
+import emojiMap from "./libs/simplemap.json";
+import options from "./options";
+import constants from "./constants";
+import "jquery-textcomplete";
+import "./libs/jquery/tabcomplete";
 
 const chat = $("#chat");
 const sidebar = $("#sidebar");

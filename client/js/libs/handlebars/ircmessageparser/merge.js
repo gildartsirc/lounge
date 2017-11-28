@@ -1,7 +1,5 @@
-"use strict";
-
-const anyIntersection = require("./anyIntersection");
-const fill = require("./fill");
+import anyIntersection from "./anyIntersection";
+import fill from "./fill";
 
 let Object_assign = Object.assign;
 
@@ -36,7 +34,7 @@ function assign(textPart, fragment) {
 // different styles, the first resulting part will contain fragments "fo" and
 // "o", and the second resulting part will contain "b" and "ar". "o" and "b"
 // fragments will contain duplicate styling attributes.
-function merge(textParts, styleFragments) {
+export default function merge(textParts, styleFragments) {
 	// Re-build the overall text (without control codes) from the style fragments
 	const cleanText = styleFragments.reduce((acc, frag) => acc + frag.text, "");
 
@@ -56,5 +54,3 @@ function merge(textParts, styleFragments) {
 		return textPart;
 	});
 }
-
-module.exports = merge;

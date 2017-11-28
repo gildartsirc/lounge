@@ -1,7 +1,5 @@
-"use strict";
-
-const expect = require("chai").expect;
-const anyIntersection = require("../../../../../../client/js/libs/handlebars/ircmessageparser/anyIntersection");
+import {expect} from "chai";
+import anyIntersection from "../../../../../../client/js/libs/handlebars/ircmessageparser/anyIntersection";
 
 describe("anyIntersection", () => {
 	it("should not intersect on edges", () => {

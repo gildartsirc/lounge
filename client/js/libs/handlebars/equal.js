@@ -1,6 +1,4 @@
-"use strict";
-
-module.exports = function(a, b, opt) {
+export default function(a, b, opt) {
 	a = a.toString();
 	b = b.toString();
 	if (a === b) {
@@ -8,4 +6,4 @@ module.exports = function(a, b, opt) {
 	}
 
 	return opt.inverse(this);
-};
+}

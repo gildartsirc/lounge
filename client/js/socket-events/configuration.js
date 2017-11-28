@@ -1,10 +1,8 @@
-"use strict";
-
-const $ = require("jquery");
-const socket = require("../socket");
-const templates = require("../../views");
-const options = require("../options");
-const webpush = require("../webpush");
+import $ from "jquery";
+import socket from "../socket";
+import templates from "../../views";
+import options from "../options";
+import webpush from "../webpush";
 
 socket.on("configuration", function(data) {
 	if (!options.initialize) {

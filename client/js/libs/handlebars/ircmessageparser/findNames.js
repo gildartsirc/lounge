@@ -1,6 +1,4 @@
-"use strict";
-
-function findNames(text, users) {
+export default function findNames(text, users) {
 	const result = [];
 	let index = 0;
 	users.forEach((nick) => {
@@ -13,5 +11,3 @@ function findNames(text, users) {
 	});
 	return result;
 }
-
-module.exports = findNames;

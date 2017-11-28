@@ -1,6 +1,4 @@
-"use strict";
-
-const expect = require("chai").expect;
+import {expect} from "chai";
 const findLinks = require("../../../../../../client/js/libs/handlebars/ircmessageparser/findLinks");
 
 describe("findLinks", () => {

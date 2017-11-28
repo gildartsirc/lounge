@@ -1,5 +1,3 @@
-"use strict";
-
 const colorCodeMap = [
 	["00", "White"],
 	["01", "Black"],
@@ -103,7 +101,7 @@ const timeFormats = {
 	msgWithSeconds: "HH:mm:ss",
 };
 
-module.exports = {
+export default {
 	colorCodeMap: colorCodeMap,
 	commands: commands,
 	condensedTypes: condensedTypes,

@@ -1,7 +1,5 @@
-"use strict";
-
-const expect = require("chai").expect;
-const findChannels = require("../../../../../../client/js/libs/handlebars/ircmessageparser/findChannels");
+import {expect} from "chai";
+import findChannels from "../../../../../../client/js/libs/handlebars/ircmessageparser/findChannels";
 
 describe("findChannels", () => {
 	it("should find single letter channel", () => {

@@ -1,12 +1,10 @@
-"use strict";
-
 var diff;
 
-module.exports = function(a, opt) {
+export default function(a, opt) {
 	if (a !== diff) {
 		diff = a;
 		return opt.fn(this);
 	}
 
 	return opt.inverse(this);
-};
+}

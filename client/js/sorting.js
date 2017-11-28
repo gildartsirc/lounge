@@ -1,11 +1,9 @@
-"use strict";
-
-const $ = require("jquery");
+import $ from "jquery";
 const sidebar = $("#sidebar, #footer");
-const socket = require("./socket");
-const options = require("./options");
+import socket from "./socket";
+import options from "./options";
 
-module.exports = function() {
+export default function() {
 	sidebar.find(".networks").sortable({
 		axis: "y",
 		containment: "parent",
@@ -61,4 +59,4 @@ module.exports = function() {
 			options.ignoreSortSync = true;
 		},
 	});
-};
+}

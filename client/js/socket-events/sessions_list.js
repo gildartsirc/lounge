@@ -1,8 +1,6 @@
-"use strict";
-
-const $ = require("jquery");
-const socket = require("../socket");
-const templates = require("../../views");
+import $ from "jquery";
+import socket from "../socket";
+import templates from "../../views";
 
 socket.on("sessions:list", function(data) {
 	data.sort((a, b) => b.lastUse - a.lastUse);

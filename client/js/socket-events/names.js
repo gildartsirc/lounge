@@ -1,6 +1,4 @@
-"use strict";
-
-const socket = require("../socket");
-const render = require("../render");
+import socket from "../socket";
+import render from "../render";
 
 socket.on("names", render.renderChannelUsers);

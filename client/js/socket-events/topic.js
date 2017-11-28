@@ -1,8 +1,6 @@
-"use strict";
-
-const $ = require("jquery");
-const socket = require("../socket");
-const helpers_parse = require("../libs/handlebars/parse");
+import $ from "jquery";
+import socket from "../socket";
+import helpers_parse from "../libs/handlebars/parse";
 
 socket.on("topic", function(data) {
 	const topic = $("#chan-" + data.chan).find(".header .topic");

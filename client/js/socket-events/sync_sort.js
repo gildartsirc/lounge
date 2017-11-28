@@ -1,8 +1,6 @@
-"use strict";
-
-const $ = require("jquery");
-const socket = require("../socket");
-const options = require("../options");
+import $ from "jquery";
+import socket from "../socket";
+import options from "../options";
 
 socket.on("sync_sort", function(data) {
 	// Syncs the order of channels or networks when they are reordered

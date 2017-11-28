@@ -1,11 +1,9 @@
-"use strict";
-
-const $ = require("jquery");
-require("jquery-textcomplete");
-const escapeRegExp = require("lodash/escapeRegExp");
+import $ from "jquery";
+import "jquery-textcomplete";
+import escapeRegExp from "lodash/escapeRegExp";
 const userStyles = $("#user-specified-css");
-const storage = require("./localStorage");
-const tz = require("./libs/handlebars/tz");
+import storage from "./localStorage";
+import tz from "./libs/handlebars/tz";
 
 const windows = $("#windows");
 const chat = $("#chat");

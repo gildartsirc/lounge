@@ -1,8 +1,6 @@
-"use strict";
-
-const $ = require("jquery");
-const storage = require("./localStorage");
-const socket = require("./socket");
+import $ from "jquery";
+import storage from "./localStorage";
+import socket from "./socket";
 
 let pushNotificationsButton;
 let clientSubscribed = null;

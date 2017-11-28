@@ -1,7 +1,5 @@
-"use strict";
-
-const $ = require("jquery");
-const socket = require("../socket");
+import $ from "jquery";
+import socket from "../socket";
 
 socket.on("change-password", function(data) {
 	const passwordForm = $("#change-password");

@@ -1,13 +1,13 @@
-"use strict";
-
-const $ = require("jquery");
+import $ from "jquery";
 const input = $("#input");
 
 var serverHash = -1;
 var lastMessageId = -1;
 
-module.exports = {
-	inputCommands: {collapse, expand, join},
+const inputCommands = {collapse, expand, join};
+
+export {
+	inputCommands,
 	findCurrentNetworkChan,
 	serverHash,
 	lastMessageId,

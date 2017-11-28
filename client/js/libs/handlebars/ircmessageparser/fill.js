@@ -1,9 +1,7 @@
-"use strict";
-
 // Create plain text entries corresponding to areas of the text that match no
 // existing entries. Returns an empty array if all parts of the text have been
 // parsed into recognizable entries already.
-function fill(existingEntries, text) {
+export default function fill(existingEntries, text) {
 	let position = 0;
 
 	// Fill inner parts of the text. For example, if text is `foobarbaz` and both
@@ -30,5 +28,3 @@ function fill(existingEntries, text) {
 
 	return result;
 }
-
-module.exports = fill;

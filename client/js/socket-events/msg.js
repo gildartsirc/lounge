@@ -1,13 +1,11 @@
-"use strict";
-
-const $ = require("jquery");
-const socket = require("../socket");
-const render = require("../render");
-const utils = require("../utils");
-const options = require("../options");
-const helpers_roundBadgeNumber = require("../libs/handlebars/roundBadgeNumber");
+import $ from "jquery";
+import socket from "../socket";
+import render from "../render";
+import utils from "../utils";
+import options from "../options";
+import helpers_roundBadgeNumber from "../libs/handlebars/roundBadgeNumber";
 const cleanIrcMessage = require("../libs/handlebars/ircmessageparser/cleanIrcMessage");
-const webpush = require("../webpush");
+import webpush from "../webpush";
 const chat = $("#chat");
 const sidebar = $("#sidebar");
 

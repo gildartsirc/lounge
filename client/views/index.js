@@ -1,6 +1,4 @@
-"use strict";
-
-module.exports = {
+export default {
 	actions: {
 		action: require("./actions/action.tpl"),
 		away: require("./actions/away.tpl"),

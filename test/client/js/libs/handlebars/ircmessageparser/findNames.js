@@ -1,7 +1,5 @@
-"use strict";
-
-const expect = require("chai").expect;
-const findNames = require("../../../../../../client/js/libs/handlebars/ircmessageparser/findNames");
+import {expect} from "chai";
+import findNames from "../../../../../../client/js/libs/handlebars/ircmessageparser/findNames";
 
 describe("findNames", () => {
 	it("should find nicks in text", () => {

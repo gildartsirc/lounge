@@ -1,6 +1,4 @@
-"use strict";
-
-const expect = require("chai").expect;
+import {expect} from "chai";
 const cleanIrcMessage = require("../../../../../../client/js/libs/handlebars/ircmessageparser/cleanIrcMessage");
 
 describe("cleanIrcMessage", function() {

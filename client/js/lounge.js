@@ -1,26 +1,24 @@
-"use strict";
-
 // vendor libraries
-require("jquery-ui/ui/widgets/sortable");
-const $ = require("jquery");
-const moment = require("moment");
-const URI = require("urijs");
-const fuzzy = require("fuzzy");
+import "jquery-ui/ui/widgets/sortable";
+import $ from "jquery";
+import moment from "moment";
+import URI from "urijs";
+import fuzzy from "fuzzy";
 
 // our libraries
-require("./libs/jquery/inputhistory");
-require("./libs/jquery/stickyscroll");
-const slideoutMenu = require("./libs/slideout");
-const templates = require("../views");
-const socket = require("./socket");
-const render = require("./render");
-require("./socket-events");
-const storage = require("./localStorage");
-const utils = require("./utils");
-require("./autocompletion");
-require("./webpush");
-require("./keybinds");
-require("./clipboard");
+import "./libs/jquery/inputhistory";
+import "./libs/jquery/stickyscroll";
+import slideoutMenu from "./libs/slideout";
+import templates from "../views";
+import socket from "./socket";
+import render from "./render";
+import "./socket-events";
+import storage from "./localStorage";
+import utils from "./utils";
+import "./autocompletion";
+import "./webpush";
+import "./keybinds";
+import "./clipboard";
 
 $(function() {
 	var sidebar = $("#sidebar, #footer");

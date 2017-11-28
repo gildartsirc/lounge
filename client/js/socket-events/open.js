@@ -1,7 +1,5 @@
-"use strict";
-
-const $ = require("jquery");
-const socket = require("../socket");
+import $ from "jquery";
+import socket from "../socket";
 
 // Sync unread badge and marker when other clients open a channel
 socket.on("open", function(id) {

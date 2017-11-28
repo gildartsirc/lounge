@@ -1,17 +1,15 @@
-"use strict";
-
-const Handlebars = require("handlebars/runtime");
-const parseStyle = require("./ircmessageparser/parseStyle");
-const anyIntersection = require("./ircmessageparser/anyIntersection");
-const findChannels = require("./ircmessageparser/findChannels");
+import Handlebars from "handlebars/runtime";
+import parseStyle from "./ircmessageparser/parseStyle";
+import anyIntersection from "./ircmessageparser/anyIntersection";
+import findChannels from "./ircmessageparser/findChannels";
 const findLinks = require("./ircmessageparser/findLinks");
-const findEmoji = require("./ircmessageparser/findEmoji");
-const findNames = require("./ircmessageparser/findNames");
-const merge = require("./ircmessageparser/merge");
-const colorClass = require("./colorClass");
+import findEmoji from "./ircmessageparser/findEmoji";
+import findNames from "./ircmessageparser/findNames";
+import merge from "./ircmessageparser/merge";
+import colorClass from "./colorClass";
 
 // FIXME: This is just for testing
-const templates = require("../../../views/chat.tpl"); // eslint-disable-line
+import templates from "../../../views/chat.tpl"; // eslint-disable-line
 
 // Create an HTML `span` with styling information for a given fragment
 function createFragment(fragment) {
@@ -54,7 +52,7 @@ function createFragment(fragment) {
 
 // Transform an IRC message potentially filled with styling control codes, URLs,
 // nicknames, and channels into a string of HTML elements to display on the client.
-module.exports = function parse(text, users) {
+export default function parse(text, users) {
 	// if it's not the users we're expecting, but rather is passed from Handlebars (occurs when users passed to template is null or undefined)
 	if (users && users.hash) {
 		users = [];
@@ -111,4 +109,4 @@ module.exports = function parse(text, users) {
 
 		return fragments;
 	}).join("");
-};
+}

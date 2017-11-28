@@ -1,5 +1,3 @@
-"use strict";
-
 // Styling control codes
 const BOLD = "\x02";
 const COLOR = "\x03";
@@ -170,7 +168,7 @@ function parseStyle(text) {
 
 const properties = ["bold", "textColor", "bgColor", "hexColor", "hexBgColor", "italic", "underline", "reverse"];
 
-function prepare(text) {
+export default function prepare(text) {
 	return parseStyle(text)
 		// This optimizes fragments by combining them together when all their values
 		// for the properties defined above are equal.
@@ -186,5 +184,3 @@ function prepare(text) {
 			return prev.concat([curr]);
 		}, []);
 }
-
-module.exports = prepare;

@@ -1,8 +1,6 @@
-"use strict";
-
-const $ = require("jquery");
-const io = require("socket.io-client");
-const utils = require("./utils");
+import $ from "jquery";
+import io from "socket.io-client";
+import utils from "./utils";
 const path = window.location.pathname + "socket.io/";
 
 const socket = io({
@@ -51,4 +49,4 @@ function handleDisconnect(data) {
 	}
 }
 
-module.exports = socket;
+export default socket;

@@ -1,13 +1,11 @@
-"use strict";
-
-const $ = require("jquery");
-const escape = require("css.escape");
-const socket = require("../socket");
-const render = require("../render");
-const webpush = require("../webpush");
+import $ from "jquery";
+import escape from "css.escape";
+import socket from "../socket";
+import render from "../render";
+import webpush from "../webpush";
 const sidebar = $("#sidebar");
-const storage = require("../localStorage");
-const utils = require("../utils");
+import storage from "../localStorage";
+import utils from "../utils";
 
 socket.on("init", function(data) {
 	$("#loading-page-message, #connection-error").text("Rendering…");

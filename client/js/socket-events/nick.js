@@ -1,8 +1,6 @@
-"use strict";
-
-const $ = require("jquery");
-const socket = require("../socket");
-const utils = require("../utils");
+import $ from "jquery";
+import socket from "../socket";
+import utils from "../utils";
 const sidebar = $("#sidebar");
 
 socket.on("nick", function(data) {

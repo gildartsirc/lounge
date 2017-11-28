@@ -1,5 +1,3 @@
-"use strict";
-
-module.exports = function(context) {
+export default function(context) {
 	return window.JSON.stringify(context);
-};
+}

@@ -1,16 +1,12 @@
-"use strict";
-
-const $ = require("jquery");
-const options = require("./options");
-const socket = require("./socket");
-const templates = require("../views");
+import $ from "jquery";
+import options from "./options";
+import socket from "./socket";
+import templates from "../views";
 const chat = $("#chat");
 const input = $("#input");
-const Mousetrap = require("mousetrap");
+import Mousetrap from "mousetrap";
 
-module.exports = renderPreview;
-
-function renderPreview(preview, msg) {
+export default function renderPreview(preview, msg) {
 	if (preview.type === "loading") {
 		return;
 	}

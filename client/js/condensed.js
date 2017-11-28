@@ -1,9 +1,7 @@
-"use strict";
+import constants from "./constants";
+import templates from "../views";
 
-const constants = require("./constants");
-const templates = require("../views");
-
-module.exports = {
+export {
 	updateText,
 };
 

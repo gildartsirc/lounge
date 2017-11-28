@@ -1,7 +1,5 @@
-"use strict";
+import escape from "css.escape";
 
-const escape = require("css.escape");
-
-module.exports = function(orig) {
+export default function(orig) {
 	return escape(orig.toLowerCase());
-};
+}

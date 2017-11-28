@@ -1,7 +1,5 @@
-"use strict";
-
-const $ = require("jquery");
-const Mousetrap = require("mousetrap");
+import $ from "jquery";
+import Mousetrap from "mousetrap";
 const input = $("#input");
 const sidebar = $("#sidebar");
 const windows = $("#windows");

@@ -1,7 +1,5 @@
-"use strict";
-
-const expect = require("chai").expect;
-const parse = require("../../../../../client/js/libs/handlebars/parse");
+import {expect} from "chai";
+import parse from "../../../../../client/js/libs/handlebars/parse";
 
 describe("parse Handlebars helper", () => {
 	it("should not introduce xss", () => {

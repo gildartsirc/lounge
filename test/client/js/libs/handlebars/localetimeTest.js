@@ -1,7 +1,5 @@
-"use strict";
-
-const expect = require("chai").expect;
-const localetime = require("../../../../../client/js/libs/handlebars/localetime");
+import {expect} from "chai";
+import localetime from "../../../../../client/js/libs/handlebars/localetime";
 
 describe("localetime Handlebars helper", () => {
 	it("should render a human-readable date", () => {

@@ -1,7 +1,5 @@
-"use strict";
-
-const socket = require("../socket");
-const storage = require("../localStorage");
+import socket from "../socket";
+import storage from "../localStorage";
 
 socket.on("sign-out", function() {
 	storage.remove("token");

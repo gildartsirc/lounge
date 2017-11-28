@@ -1,6 +1,5 @@
 // The Lounge - https://github.com/thelounge/lounge
 /* global clients */
-"use strict";
 
 self.addEventListener("message", function(event) {
 	showNotification(event, event.data);

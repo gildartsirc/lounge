@@ -1,10 +1,8 @@
-"use strict";
-
-const $ = require("jquery");
-const socket = require("../socket");
-const render = require("../render");
+import $ from "jquery";
+import socket from "../socket";
+import render from "../render";
 const chat = $("#chat");
-const templates = require("../../views");
+import templates from "../../views";
 const sidebar = $("#sidebar");
 
 socket.on("join", function(data) {

@@ -1,7 +1,5 @@
-"use strict";
+import moment from "moment";
 
-const moment = require("moment");
-
-module.exports = function(time) {
+export default function(time) {
 	return moment(time).format("D MMMM YYYY, HH:mm:ss");
-};
+}

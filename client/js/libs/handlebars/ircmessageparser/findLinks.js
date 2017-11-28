@@ -1,5 +1,3 @@
-"use strict";
-
 const URI = require("urijs");
 
 // Known schemes to detect in a text. If a text contains `foo...bar://foo.com`,

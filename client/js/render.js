@@ -1,26 +1,24 @@
-"use strict";
-
-const $ = require("jquery");
-const templates = require("../views");
-const options = require("./options");
-const renderPreview = require("./renderPreview");
-const utils = require("./utils");
-const sorting = require("./sorting");
-const constants = require("./constants");
-const condensed = require("./condensed");
-const helpers_parse = require("./libs/handlebars/parse");
+import $ from "jquery";
+import templates from "../views";
+import options from "./options";
+import renderPreview from "./renderPreview";
+import utils from "./utils";
+import sorting from "./sorting";
+import constants from "./constants";
+import condensed from "./condensed";
+import helpers_parse from "./libs/handlebars/parse";
 
 const chat = $("#chat");
 const sidebar = $("#sidebar");
 
-require("intersection-observer");
+import "intersection-observer";
 
 const historyObserver = window.IntersectionObserver ?
 	new window.IntersectionObserver(loadMoreHistory, {
 		root: chat.get(0),
 	}) : null;
 
-module.exports = {
+export {
 	appendMessage,
 	buildChannelMessages,
 	renderChannel,

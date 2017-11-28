@@ -1,10 +1,8 @@
-"use strict";
-
-const $ = require("jquery");
-const socket = require("../socket");
-const storage = require("../localStorage");
-const utils = require("../utils");
-const templates = require("../../views");
+import $ from "jquery";
+import socket from "../socket";
+import storage from "../localStorage";
+import utils from "../utils";
+import templates from "../../views";
 
 socket.on("auth", function(data) {
 	// If we reconnected and serverHash differs, that means the server restarted

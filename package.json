@@ -23,7 +23,8 @@
     "test:mocha": "nyc --nycrc-path=test/.nycrc-mocha mocha --colors",
     "test:mocha-webpack": "nyc --nycrc-path=test/.nycrc-mocha-webpack mocha-webpack --colors --opts=test/mocha-webpack.opts",
     "lint:js": "eslint . --report-unused-disable-directives --color",
-    "lint:css": "stylelint --color --report-needless-disables=error \"client/**/*.css\""
+    "lint:css": "stylelint --color --report-needless-disables=error \"client/**/*.css\"",
+    "start:mocha": "webpack-dev-server --config=webpack.config-browser.js"
   },
   "keywords": [
     "lounge",
@@ -86,6 +87,7 @@
     "socket.io-client": "2.0.4",
     "stylelint": "8.3.1",
     "stylelint-config-standard": "18.0.0",
-    "webpack": "3.8.1"
+    "webpack": "3.8.1",
+    "webpack-dev-server": "2.9.5"
   }
 }

@@ -6,6 +6,15 @@ var id = 0;
 
 class Msg {
 	constructor(attr) {
+		// Some properties need to be copied in the Msg object instead of referenced
+		if (attr) {
+			["from", "invited", "target"].forEach((prop) => {
+				if (attr[prop]) {
+					this[prop] = _.cloneDeep(attr[prop]);
+				}
+			});
+		}
+
 		_.defaults(this, attr, {
 			from: "",
 			id: id++,

@@ -203,44 +203,57 @@ describe("parse Handlebars helper", () => {
 		expect(actual).to.deep.equal(expected);
 	});
 
-	it("should style like mirc", () => {
-		const testCases = [{
-			input: "\x02bold",
-			expected: '<span class="irc-bold">bold</span>',
-		}, {
-			input: "\x038yellowText",
-			expected: '<span class="irc-fg8">yellowText</span>',
-		}, {
-			input: "\x030,0white,white",
-			expected: '<span class="irc-fg0 irc-bg0">white,white</span>',
-		}, {
-			input: "\x034,8yellowBGredText",
-			expected: '<span class="irc-fg4 irc-bg8">yellowBGredText</span>',
-		}, {
-			input: "\x1ditalic",
-			expected: '<span class="irc-italic">italic</span>',
-		}, {
-			input: "\x1funderline",
-			expected: '<span class="irc-underline">underline</span>',
-		}, {
-			input: "\x02bold\x038yellow\x02nonBold\x03default",
-			expected:
-				'<span class="irc-bold">bold</span>' +
-				'<span class="irc-bold irc-fg8">yellow</span>' +
-				'<span class="irc-fg8">nonBold</span>' +
-				"default",
-		}, {
-			input: "\x02bold\x02 \x02bold\x02",
-			expected:
-				'<span class="irc-bold">bold</span>' +
-				" " +
-				'<span class="irc-bold">bold</span>',
-		}];
-
-		const actual = testCases.map((testCase) => parse(testCase.input));
-		const expected = testCases.map((testCase) => testCase.expected);
-
-		expect(actual).to.deep.equal(expected);
+	[{
+		name: "bold",
+		input: "\x02bold",
+		expected: '<span class="irc-bold">bold</span>',
+	}, {
+		name: "foreground color",
+		input: "\x038yellowText",
+		expected: '<span class="irc-fg8">yellowText</span>',
+	}, {
+		name: "foreground and background colors (white)",
+		input: "\x030,0white,white",
+		expected: '<span class="irc-fg0 irc-bg0">white,white</span>',
+	}, {
+		name: "foreground and background colors",
+		input: "\x034,8yellowBGredText",
+		expected: '<span class="irc-fg4 irc-bg8">yellowBGredText</span>',
+	}, {
+		name: "hex foreground color",
+		input: "\x04663399rebeccapurple",
+		expected: '<span style="color:#663399">rebeccapurple</span>',
+	}, {
+		name: "hex foreground and background colors",
+		input: "\x04415364,ff9e18The Lounge",
+		expected: '<span style="color:#415364;background-color:#FF9E18">The Lounge</span>',
+	}, {
+		name: "italic",
+		input: "\x1ditalic",
+		expected: '<span class="irc-italic">italic</span>',
+	}, {
+		name: "underline",
+		input: "\x1funderline",
+		expected: '<span class="irc-underline">underline</span>',
+	}, {
+		name: "resets",
+		input: "\x02bold\x038yellow\x02nonBold\x03default",
+		expected:
+			'<span class="irc-bold">bold</span>' +
+			'<span class="irc-bold irc-fg8">yellow</span>' +
+			'<span class="irc-fg8">nonBold</span>' +
+			"default",
+	}, {
+		name: "duplicates",
+		input: "\x02bold\x02 \x02bold\x02",
+		expected:
+			'<span class="irc-bold">bold</span>' +
+			" " +
+			'<span class="irc-bold">bold</span>',
+	}].forEach((item) => { // TODO: In Node v6+, use `{name, input, expected}`
+		it(`should handle style characters: ${item.name}`, function() {
+			expect(parse(item.input)).to.equal(item.expected);
+		});
 	});
 
 	it("should find nicks", () => {
@@ -310,6 +323,10 @@ describe("parse Handlebars helper", () => {
 		const expected = testCases.map((testCase) => testCase.expected);
 
 		expect(actual).to.deep.equal(expected);
+	});
+
+	it("should find emoji", function() {
+		expect(parse("Hello💬")).to.deep.equal('Hello<span class="emoji">💬</span>');
 	});
 
 	it("should optimize generated html", () => {

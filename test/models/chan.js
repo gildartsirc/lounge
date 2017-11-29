@@ -29,16 +29,16 @@ describe("Chan", function() {
 	describe("#findMessage(id)", function() {
 		const chan = new Chan({
 			messages: [
-				new Msg(),
-				new Msg({
+				new Msg(), // id: 1
+				new Msg({ // id: 2
 					text: "Message to be found",
 				}),
-				new Msg(),
+				new Msg(), // id: 3
 			],
 		});
 
 		it("should find a message in the list of messages", function() {
-			expect(chan.findMessage(1).text).to.equal("Message to be found");
+			expect(chan.findMessage(2).text).to.equal("Message to be found");
 		});
 
 		it("should not find a message that does not exist", function() {

@@ -7,6 +7,14 @@ module.exports = Network;
 
 let id = 1;
 
+Network.FilteredFromClient = {
+	awayMessage: true,
+	chanCache: true,
+	highlightRegex: true,
+	irc: true,
+	password: true,
+};
+
 function Network(attr) {
 	_.defaults(this, attr, {
 		name: "",
@@ -63,14 +71,8 @@ Network.prototype.setNick = function(nick) {
 	);
 };
 
-Network.prototype.toJSON = function() {
-	return _.omit(this, [
-		"awayMessage",
-		"chanCache",
-		"highlightRegex",
-		"irc",
-		"password",
-	]);
+Network.prototype.getFiltered = function() {
+	return _.omit(this, Object.values(Network.FilteredFromClient));
 };
 
 Network.prototype.export = function() {

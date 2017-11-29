@@ -11,6 +11,8 @@ var io = require("socket.io");
 var dns = require("dns");
 var Helper = require("./helper");
 var colors = require("colors/safe");
+const Chan = require("./models/chan");
+const Network = require("./models/network");
 const net = require("net");
 const Identification = require("./identification");
 const themes = require("./plugins/themes");
@@ -420,18 +422,38 @@ function initializeClient(socket, client, token, lastMessage) {
 	socket.join(client.id);
 
 	const sendInitEvent = (tokenToSend) => {
-		let networks = client.networks;
+		console.time(`${client.name} - time to clone networks`);
 
-		if (lastMessage > -1) {
-			// We need a deep cloned object because we are going to remove unneeded messages
-			networks = _.cloneDeep(networks);
+		const networks = client.networks.map((network) => {
+			return Object.keys(network).reduce((newNetwork, propNetwork) => {
+				if (propNetwork === "channels") {
+					newNetwork[propNetwork] = network[propNetwork].map((channel) => {
+						return Object.keys(channel).reduce((newChannel, propChannel) => {
+							if (propChannel === "users") {
+								newChannel[propChannel] = [];
+							} else if (propChannel === "messages") {
+								if (lastMessage > -1) {
+									newChannel[propChannel] = channel[propChannel].filter((m) => m.id > lastMessage);
+								}
 
-			networks.forEach((network) => {
-				network.channels.forEach((channel) => {
-					channel.messages = channel.messages.filter((m) => m.id > lastMessage);
-				});
-			});
-		}
+								newChannel[propChannel] = channel[propChannel].slice(channel.id === client.lastActiveChannel ? -100 : -1);
+							} else {
+								newChannel[propChannel] = channel[propChannel];
+							}
+
+							return newChannel;
+						}, {});
+					});
+				} else if (!Network.FilteredFromClient[propNetwork]) {
+					newNetwork[propNetwork] = network[propNetwork];
+				}
+
+				return newNetwork;
+			}, {});
+		});
+
+		console.timeEnd(`${client.name} - time to clone networks`);
+		console.time(`${client.name} - time to emit to socket.io`);
 
 		socket.emit("init", {
 			applicationServerKey: manager.webPush.vapidKeys.publicKey,
@@ -440,6 +462,8 @@ function initializeClient(socket, client, token, lastMessage) {
 			networks: networks,
 			token: tokenToSend,
 		});
+
+		console.timeEnd(`${client.name} - time to emit to socket.io`);
 	};
 
 	if (!Helper.config.public && token === null) {

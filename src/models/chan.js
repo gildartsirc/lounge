@@ -136,13 +136,6 @@ Chan.prototype.removeUser = function(user) {
 	this.users.delete(user.nick.toLowerCase());
 };
 
-Chan.prototype.toJSON = function() {
-	var clone = _.clone(this);
-	clone.users = []; // Do not send user list, the client will explicitly request it when needed
-	clone.messages = clone.messages.slice(-1);
-	return clone;
-};
-
 function writeUserLog(client, msg) {
 	const target = client.find(this.id);
 

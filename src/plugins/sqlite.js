@@ -32,6 +32,22 @@ class MessageStorage {
 			);
 		});
 	}
+
+	getMessages(network, channel, offset = 0) {
+		return new Promise((resolve, reject) => {
+			this.database.all(
+				"SELECT time, type, nick, text FROM logs WHERE network = ? AND channel = ? ORDER BY time DESC LIMIT 100 OFFSET ?",
+				[network, channel, offset],
+				(err, rows) => {
+					if (err) {
+						reject(err);
+					} else {
+						resolve(rows);
+					}
+				}
+			);
+		});
+	}
 }
 
 module.exports = MessageStorage;
